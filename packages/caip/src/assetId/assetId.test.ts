@@ -288,7 +288,7 @@ describe('assetId', () => {
       ).toThrow()
     })
 
-    it('can make FOX AssetId on mainnet', () => {
+    it('can make XFURY AssetId on mainnet', () => {
       const chainNamespace = CHAIN_NAMESPACE.Evm
       const chainReference = CHAIN_REFERENCE.EthereumMainnet
       const assetIdArgSuperset = {
@@ -339,7 +339,7 @@ describe('assetId', () => {
       )
     })
 
-    it('can make FOX AssetId on ropsten', () => {
+    it('can make XFURY AssetId on ropsten', () => {
       const chainNamespace = CHAIN_NAMESPACE.Evm
       const chainReference = CHAIN_REFERENCE.EthereumRopsten
       const assetIdArgSuperset = {
@@ -565,7 +565,7 @@ describe('assetId', () => {
       expect(assetReference).toEqual(ASSET_REFERENCE.Bitcoin)
     })
 
-    it('can return chainId, chainReference, chainNamespace, assetNamespace, assetReference from FOX AssetId on mainnet', () => {
+    it('can return chainId, chainReference, chainNamespace, assetNamespace, assetReference from XFURY AssetId on mainnet', () => {
       const AssetId = 'eip155:1/erc20:0xc770eefad204b5180df6a14ee197d99d808ee52d'
       const { chainId, chainReference, chainNamespace, assetNamespace, assetReference } =
         fromAssetId(AssetId)
@@ -598,7 +598,7 @@ describe('assetId', () => {
       expect(assetReference).toEqual('0xc770eefad204b5180df6a14ee197d99d808ee52d')
     })
 
-    it('can return chainId, chainReference, chainNamespace, assetNamespace, assetReference from FOX AssetId on ropsten', () => {
+    it('can return chainId, chainReference, chainNamespace, assetNamespace, assetReference from XFURY AssetId on ropsten', () => {
       const AssetId = 'eip155:3/erc20:0xc770eefad204b5180df6a14ee197d99d808ee52d'
       const { chainId, chainReference, chainNamespace, assetNamespace, assetReference } =
         fromAssetId(AssetId)

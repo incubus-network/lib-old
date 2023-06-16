@@ -12,7 +12,7 @@
 * [Chain Adapters](packages/chain-adapters/README.md)
 * [Errors](packages/errors/README.md)
 * [Market Service](packages/market-service/README.md)
-* [Investor FOXy](packages/investor-foxy/README.md)
+* [Investor XFURYy](packages/investor-xfuryz/README.md)
 * [Investor Yearn](packages/investor-yearn/README.md)
 * [Logger](packages/logger/README.md)
 * [Swapper](packages/swapper/README.md)

@@ -295,7 +295,7 @@ Co-authored-by: Apotheosis <97164662+0xApotheosis@users.noreply.github.com>
 
 ### Bug Fixes
 
-* correct FOXy icon URL ([#838](https://github.com/shapeshift/lib/issues/838)) ([8daa430](https://github.com/shapeshift/lib/commit/8daa43083386963685afbb799fbdea1d18441c0c))
+* correct XFURYy icon URL ([#838](https://github.com/shapeshift/lib/issues/838)) ([8daa430](https://github.com/shapeshift/lib/commit/8daa43083386963685afbb799fbdea1d18441c0c))
 
 # [@shapeshiftoss/asset-service-v6.1.1](https://github.com/shapeshift/lib/compare/@shapeshiftoss/asset-service-v6.1.0...@shapeshiftoss/asset-service-v6.1.1) (2022-06-21)
 
@@ -392,7 +392,7 @@ Co-authored-by: Apotheosis <97164662+0xApotheosis@users.noreply.github.com>
 
 ### Features
 
-* add FOXy description ([#710](https://github.com/shapeshift/lib/issues/710)) ([dfccd73](https://github.com/shapeshift/lib/commit/dfccd73775e98a59603419373f78bb75f6b1e9b1))
+* add XFURYy description ([#710](https://github.com/shapeshift/lib/issues/710)) ([dfccd73](https://github.com/shapeshift/lib/commit/dfccd73775e98a59603419373f78bb75f6b1e9b1))
 
 # [@shapeshiftoss/asset-service-v4.3.0](https://github.com/shapeshift/lib/compare/@shapeshiftoss/asset-service-v4.2.4...@shapeshiftoss/asset-service-v4.3.0) (2022-05-26)
 
@@ -581,7 +581,7 @@ Co-authored-by: kaladinlight <35275952+kaladinlight@users.noreply.github.com>
 
 ### Features
 
-* implement Foxy asset & market data ([#455](https://github.com/shapeshift/lib/issues/455)) ([0d44ab9](https://github.com/shapeshift/lib/commit/0d44ab931153cffab81a923f24814e41a2f898ba)), closes [#453](https://github.com/shapeshift/lib/issues/453)
+* implement Xfuryz asset & market data ([#455](https://github.com/shapeshift/lib/issues/455)) ([0d44ab9](https://github.com/shapeshift/lib/commit/0d44ab931153cffab81a923f24814e41a2f898ba)), closes [#453](https://github.com/shapeshift/lib/issues/453)
 
 # [@shapeshiftoss/asset-service-v2.0.4](https://github.com/shapeshift/lib/compare/@shapeshiftoss/asset-service-v2.0.3...@shapeshiftoss/asset-service-v2.0.4) (2022-03-18)
 

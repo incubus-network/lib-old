@@ -45,13 +45,13 @@ describe('adapters:coingecko', () => {
       expect(coingeckoToAssetIds('ethereum')).toEqual([eth, ethOptimism])
     })
 
-    it('can get AssetIds id for FOX', () => {
+    it('can get AssetIds id for XFURY', () => {
       const chainNamespace = CHAIN_NAMESPACE.Evm
       const chainReference = CHAIN_REFERENCE.EthereumMainnet
       const assetNamespace = 'erc20'
       const assetReference = '0xc770eefad204b5180df6a14ee197d99d808ee52d'
       const assetId = toAssetId({ chainNamespace, chainReference, assetNamespace, assetReference })
-      expect(coingeckoToAssetIds('shapeshift-fox-token')).toEqual([assetId])
+      expect(coingeckoToAssetIds('shapeshift-xfury-token')).toEqual([assetId])
     })
 
     it('can get AssetIds for cosmos', () => {
@@ -143,13 +143,13 @@ describe('adapters:coingecko', () => {
       expect(assetIdToCoingecko(assetId)).toEqual('ethereum')
     })
 
-    it('can get CoinGecko id for FOX', () => {
+    it('can get CoinGecko id for XFURY', () => {
       const chainNamespace = CHAIN_NAMESPACE.Evm
       const chainReference = CHAIN_REFERENCE.EthereumMainnet
       const assetNamespace = 'erc20'
       const assetReference = '0xc770eefad204b5180df6a14ee197d99d808ee52d'
       const assetId = toAssetId({ chainNamespace, chainReference, assetNamespace, assetReference })
-      expect(assetIdToCoingecko(assetId)).toEqual('shapeshift-fox-token')
+      expect(assetIdToCoingecko(assetId)).toEqual('shapeshift-xfury-token')
     })
 
     it('can get CoinGecko id for cosmos AssetId', () => {

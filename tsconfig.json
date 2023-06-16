@@ -7,7 +7,7 @@
       "@shapeshiftoss/asset-service/*": ["packages/asset-service"],
       "@shapeshiftoss/caip/*": ["packages/caip"],
       "@shapeshiftoss/chain-adapters/*": ["packages/chain-adapters"],
-      "@shapeshiftoss/investory-foxy/*": ["packages/investory-foxy"],
+      "@shapeshiftoss/investory-xfuryz/*": ["packages/investory-xfuryz"],
       "@shapeshiftoss/investory-yearn/*": ["packages/investory-yearn"],
       "@shapeshiftoss/investory-idle/*": ["packages/investory-idle"],
       "@shapeshiftoss/logger/*": ["packages/logger"],

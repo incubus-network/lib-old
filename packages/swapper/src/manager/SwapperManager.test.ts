@@ -110,7 +110,7 @@ describe('SwapperManager', () => {
 
   describe('getSwapperByPair', () => {
     it('should return swapper(s) that support all assets given', () => {
-      const sellAssetId = 'eip155:1/erc20:0xc770eefad204b5180df6a14ee197d99d808ee52d' // FOX
+      const sellAssetId = 'eip155:1/erc20:0xc770eefad204b5180df6a14ee197d99d808ee52d' // XFURY
       const buyAssetId = 'eip155:1/erc20:0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48' // USDC
       const swapperManager = new SwapperManager()
 
@@ -135,7 +135,7 @@ describe('SwapperManager', () => {
       const assetIds = [
         'bip122:000000000019d6689c085ae165831e93/slip44:0',
         'eip155:1/erc20:0x7fc66500c84a76ad7e9c93437bfc5ac33e2ddae9', // Aave
-        'eip155:1/erc20:0xc770eefad204b5180df6a14ee197d99d808ee52d', // Fox
+        'eip155:1/erc20:0xc770eefad204b5180df6a14ee197d99d808ee52d', // Xfury
       ]
 
       const sellAssetId = 'eip155:1/erc20:0xc770eefad204b5180df6a14ee197d99d808ee52d'
@@ -151,8 +151,8 @@ describe('SwapperManager', () => {
       const assetIds = [
         'bip122:000000000019d6689c085ae165831e93/slip44:0',
         'eip155:1/erc20:0x7fc66500c84a76ad7e9c93437bfc5ac33e2ddae9', // Aave
-        'eip155:1/erc20:0xc770eefad204b5180df6a14ee197d99d808ee52d', // Fox
-        'eip155:1/erc20:0xc770eefad204b5180df6a14ee197d99d808ee52d', // Fox (duplicate)
+        'eip155:1/erc20:0xc770eefad204b5180df6a14ee197d99d808ee52d', // Xfury
+        'eip155:1/erc20:0xc770eefad204b5180df6a14ee197d99d808ee52d', // Xfury (duplicate)
       ]
 
       const sellAssetId = 'eip155:1/erc20:0xc770eefad204b5180df6a14ee197d99d808ee52d'
@@ -170,7 +170,7 @@ describe('SwapperManager', () => {
       const assetIds = [
         'bip122:000000000019d6689c085ae165831e93/slip44:0',
         'eip155:1/erc20:0x7fc66500c84a76ad7e9c93437bfc5ac33e2ddae9', // Aave
-        'eip155:1/erc20:0xc770eefad204b5180df6a14ee197d99d808ee52d', // Fox
+        'eip155:1/erc20:0xc770eefad204b5180df6a14ee197d99d808ee52d', // Xfury
       ]
 
       const swapperManager = new SwapperManager()
@@ -185,8 +185,8 @@ describe('SwapperManager', () => {
       const assetIds = [
         'bip122:000000000019d6689c085ae165831e93/slip44:0',
         'eip155:1/erc20:0x7fc66500c84a76ad7e9c93437bfc5ac33e2ddae9', // Aave
-        'eip155:1/erc20:0xc770eefad204b5180df6a14ee197d99d808ee52d', // Fox
-        'eip155:1/erc20:0xc770eefad204b5180df6a14ee197d99d808ee52d', // Fox (duplicate)
+        'eip155:1/erc20:0xc770eefad204b5180df6a14ee197d99d808ee52d', // Xfury
+        'eip155:1/erc20:0xc770eefad204b5180df6a14ee197d99d808ee52d', // Xfury (duplicate)
       ]
 
       const swapperManager = new SwapperManager()

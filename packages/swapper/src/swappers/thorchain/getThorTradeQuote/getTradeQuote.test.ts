@@ -3,7 +3,7 @@ import Web3 from 'web3'
 
 import type { GetTradeQuoteInput, TradeQuote } from '../../../api'
 import { SwapperName } from '../../../api'
-import { ETH, FOX } from '../../utils/test-data/assets'
+import { ETH, XFURY } from '../../utils/test-data/assets'
 import { setupQuote } from '../../utils/test-data/setupSwapQuote'
 import type { ThorchainSwapperDeps } from '../types'
 import { getUsdRate } from '../utils/getUsdRate/getUsdRate'
@@ -20,7 +20,7 @@ const mockedAxios = jest.mocked(thorService, true)
 const expectedQuoteResponse: TradeQuote<KnownChainIds.EthereumMainnet> = {
   minimumCryptoHuman: '59.658672054814851787728',
   maximum: '100000000000000000000000000',
-  sellAmountBeforeFeesCryptoBaseUnit: '10000000000000000000', // 10 FOX
+  sellAmountBeforeFeesCryptoBaseUnit: '10000000000000000000', // 10 XFURY
   allowanceContract: '0x3624525075b88B24ecc29CE226b0CEc1fFcB6976',
   buyAmountCryptoBaseUnit: '784000000000000',
   feeData: {
@@ -36,7 +36,7 @@ const expectedQuoteResponse: TradeQuote<KnownChainIds.EthereumMainnet> = {
   rate: '0.0000784',
   sources: [{ name: SwapperName.Thorchain, proportion: '1' }],
   buyAsset: ETH,
-  sellAsset: FOX,
+  sellAsset: XFURY,
   accountNumber: 0,
   recommendedSlippage: '0.00000608624714961082',
 }
@@ -68,9 +68,9 @@ describe('getTradeQuote', () => {
 
     const input: GetTradeQuoteInput = {
       ...quoteInput,
-      sellAmountBeforeFeesCryptoBaseUnit: '10000000000000000000', // 10 FOX
+      sellAmountBeforeFeesCryptoBaseUnit: '10000000000000000000', // 10 XFURY
       buyAsset: ETH,
-      sellAsset: FOX,
+      sellAsset: XFURY,
     }
 
     const tradeQuote = await getThorTradeQuote({ deps, input })

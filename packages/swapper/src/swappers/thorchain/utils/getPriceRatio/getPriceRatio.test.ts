@@ -2,7 +2,7 @@ import { ChainAdapterManager } from '@shapeshiftoss/chain-adapters'
 import Web3 from 'web3'
 
 import { ThorchainSwapperDeps } from '../../types'
-import { ethThornodePool, foxThornodePool } from '../test-data/responses'
+import { ethThornodePool, xfuryThornodePool } from '../test-data/responses'
 import { thorService } from '../thorService'
 import { getPriceRatio } from './getPriceRatio'
 
@@ -17,13 +17,13 @@ describe('getPriceRatio', () => {
   }
 
   it('should correctly calculate price ratio of between a given buy and sell asset', async () => {
-    const foxId = 'eip155:1/erc20:0xc770eefad204b5180df6a14ee197d99d808ee52d'
+    const xfuryId = 'eip155:1/erc20:0xc770eefad204b5180df6a14ee197d99d808ee52d'
     const ethId = 'eip155:1/slip44:60'
     ;(thorService.get as jest.Mock<unknown>).mockReturnValue(
-      Promise.resolve({ data: [foxThornodePool, ethThornodePool] }),
+      Promise.resolve({ data: [xfuryThornodePool, ethThornodePool] }),
     )
 
-    const ratio = await getPriceRatio(deps, { buyAssetId: foxId, sellAssetId: ethId })
+    const ratio = await getPriceRatio(deps, { buyAssetId: xfuryId, sellAssetId: ethId })
 
     const expectedRatio = '12749.78930665263109581403'
 
@@ -34,7 +34,7 @@ describe('getPriceRatio', () => {
     const derpId = 'eip155:1/erc20:derp'
     const ethId = 'eip155:1/slip44:60'
     ;(thorService.get as jest.Mock<unknown>).mockReturnValue(
-      Promise.resolve({ data: [foxThornodePool, ethThornodePool] }),
+      Promise.resolve({ data: [xfuryThornodePool, ethThornodePool] }),
     )
 
     await expect(getPriceRatio(deps, { buyAssetId: derpId, sellAssetId: ethId })).rejects.toThrow(

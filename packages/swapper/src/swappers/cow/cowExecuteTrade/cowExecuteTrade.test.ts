@@ -5,7 +5,7 @@ import { ethers } from 'ethers'
 import Web3 from 'web3'
 
 import { ExecuteTradeInput, SwapperName } from '../../../api'
-import { ETH, FOX, WETH } from '../../utils/test-data/assets'
+import { ETH, WETH, XFURY } from '../../utils/test-data/assets'
 import { CowSwapperDeps } from '../CowSwapper'
 import { CowTrade } from '../types'
 import {
@@ -49,7 +49,7 @@ jest.mock('../utils/helpers/helpers', () => {
 const ethereumMock = jest.mocked(ethereum, true)
 const hashOrderMock = jest.mocked(hashOrder, true)
 
-const cowTradeEthToFox: CowTrade<KnownChainIds.EthereumMainnet> = {
+const cowTradeEthToXfury: CowTrade<KnownChainIds.EthereumMainnet> = {
   rate: '14716.04718939437505555958',
   feeData: {
     chainSpecific: {
@@ -63,7 +63,7 @@ const cowTradeEthToFox: CowTrade<KnownChainIds.EthereumMainnet> = {
   sellAmountBeforeFeesCryptoBaseUnit: '1000000000000000000',
   buyAmountCryptoBaseUnit: '14501811818247595090576',
   sources: [{ name: SwapperName.CowSwap, proportion: '1' }],
-  buyAsset: FOX,
+  buyAsset: XFURY,
   sellAsset: ETH,
   accountNumber: 0,
   receiveAddress: 'address11',
@@ -71,7 +71,7 @@ const cowTradeEthToFox: CowTrade<KnownChainIds.EthereumMainnet> = {
   sellAmountDeductFeeCryptoBaseUnit: '111111',
 }
 
-const cowTradeWethToFox: CowTrade<KnownChainIds.EthereumMainnet> = {
+const cowTradeWethToXfury: CowTrade<KnownChainIds.EthereumMainnet> = {
   rate: '14716.04718939437505555958',
   feeData: {
     chainSpecific: {
@@ -85,7 +85,7 @@ const cowTradeWethToFox: CowTrade<KnownChainIds.EthereumMainnet> = {
   sellAmountBeforeFeesCryptoBaseUnit: '20200000000000000',
   buyAmountCryptoBaseUnit: '272522025311597443544',
   sources: [{ name: SwapperName.CowSwap, proportion: '1' }],
-  buyAsset: FOX,
+  buyAsset: XFURY,
   sellAsset: WETH,
   accountNumber: 0,
   receiveAddress: 'address11',
@@ -93,7 +93,7 @@ const cowTradeWethToFox: CowTrade<KnownChainIds.EthereumMainnet> = {
   sellAmountDeductFeeCryptoBaseUnit: '16685605000000000',
 }
 
-const cowTradeFoxToEth: CowTrade<KnownChainIds.EthereumMainnet> = {
+const cowTradeXfuryToEth: CowTrade<KnownChainIds.EthereumMainnet> = {
   rate: '0.00004995640398295996',
   feeData: {
     chainSpecific: {
@@ -108,14 +108,14 @@ const cowTradeFoxToEth: CowTrade<KnownChainIds.EthereumMainnet> = {
   buyAmountCryptoBaseUnit: '46868859830863283',
   sources: [{ name: SwapperName.CowSwap, proportion: '1' }],
   buyAsset: ETH,
-  sellAsset: FOX,
+  sellAsset: XFURY,
   accountNumber: 0,
   receiveAddress: 'address11',
   feeAmountInSellTokenCryptoBaseUnit: '61804771879693983744',
   sellAmountDeductFeeCryptoBaseUnit: '938195228120306016256',
 }
 
-const expectedWethToFoxOrderToSign: CowSwapOrder = {
+const expectedWethToXfuryOrderToSign: CowSwapOrder = {
   sellToken: '0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2',
   buyToken: '0xc770eefad204b5180df6a14ee197d99d808ee52d',
   sellAmount: '16685605000000000',
@@ -130,7 +130,7 @@ const expectedWethToFoxOrderToSign: CowSwapOrder = {
   buyTokenBalance: ERC20_TOKEN_BALANCE,
 }
 
-const expectedFoxToEthOrderToSign: CowSwapOrder = {
+const expectedXfuryToEthOrderToSign: CowSwapOrder = {
   sellToken: '0xc770eefad204b5180df6a14ee197d99d808ee52d',
   buyToken: '0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE',
   sellAmount: '938195228120306016256',
@@ -154,7 +154,7 @@ const deps: CowSwapperDeps = {
 describe('cowExecuteTrade', () => {
   it('should throw an exception if both assets are not erc20s', async () => {
     const tradeInput: ExecuteTradeInput<KnownChainIds.EthereumMainnet> = {
-      trade: cowTradeEthToFox,
+      trade: cowTradeEthToXfury,
       wallet: {} as HDWallet,
     }
 
@@ -165,7 +165,7 @@ describe('cowExecuteTrade', () => {
 
   it('should call cowService with correct parameters and return the order uid when selling WETH', async () => {
     const tradeInput: ExecuteTradeInput<KnownChainIds.EthereumMainnet> = {
-      trade: cowTradeWethToFox,
+      trade: cowTradeWethToXfury,
       wallet: {} as HDWallet,
     }
 
@@ -182,10 +182,10 @@ describe('cowExecuteTrade', () => {
         '0xe476dadc86e768e4602bc872d4a7d50b03a4c2a609b37bf741f26baa578146bd0ea983f21f58f0e1a29ed653bcfc8afac4fec2a462c2e25e',
     })
     expect(cowService.post).toHaveBeenCalledWith('https://api.cow.fi/mainnet/api/v1/orders/', {
-      ...expectedWethToFoxOrderToSign,
+      ...expectedWethToXfuryOrderToSign,
       signingScheme: SIGNING_SCHEME,
       signature: Signature,
-      from: expectedWethToFoxOrderToSign.receiver,
+      from: expectedWethToXfuryOrderToSign.receiver,
     })
 
     expect(hashOrderMock).toHaveBeenCalledWith(
@@ -195,7 +195,7 @@ describe('cowExecuteTrade', () => {
         verifyingContract: '0x9008D19f58AAbD9eD0D60971565AA8510560ab41',
         version: 'v2',
       },
-      expectedWethToFoxOrderToSign,
+      expectedWethToXfuryOrderToSign,
     )
     expect(
       (ethereumMock.ChainAdapter as unknown as ethereum.ChainAdapter).signMessage,
@@ -210,7 +210,7 @@ describe('cowExecuteTrade', () => {
 
   it('should call cowService with correct parameters and return the order uid when buying ETH', async () => {
     const tradeInput: ExecuteTradeInput<KnownChainIds.EthereumMainnet> = {
-      trade: cowTradeFoxToEth,
+      trade: cowTradeXfuryToEth,
       wallet: {} as HDWallet,
     }
 
@@ -228,10 +228,10 @@ describe('cowExecuteTrade', () => {
     })
 
     expect(cowService.post).toHaveBeenCalledWith('https://api.cow.fi/mainnet/api/v1/orders/', {
-      ...expectedFoxToEthOrderToSign,
+      ...expectedXfuryToEthOrderToSign,
       signingScheme: SIGNING_SCHEME,
       signature: Signature,
-      from: expectedFoxToEthOrderToSign.receiver,
+      from: expectedXfuryToEthOrderToSign.receiver,
     })
 
     expect(hashOrderMock).toHaveBeenCalledWith(
@@ -241,7 +241,7 @@ describe('cowExecuteTrade', () => {
         verifyingContract: '0x9008D19f58AAbD9eD0D60971565AA8510560ab41',
         version: 'v2',
       },
-      expectedFoxToEthOrderToSign,
+      expectedXfuryToEthOrderToSign,
     )
     expect(
       (ethereumMock.ChainAdapter as unknown as ethereum.ChainAdapter).signMessage,

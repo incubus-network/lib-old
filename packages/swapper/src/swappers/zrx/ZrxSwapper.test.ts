@@ -5,7 +5,7 @@ import { KnownChainIds } from '@shapeshiftoss/types'
 import Web3 from 'web3'
 
 import { ZrxSwapper } from '..'
-import { FOX } from '../utils/test-data/assets'
+import { XFURY } from '../utils/test-data/assets'
 import { setupBuildTrade, setupQuote } from '../utils/test-data/setupSwapQuote'
 import { getZrxTradeQuote } from './getZrxTradeQuote/getZrxTradeQuote'
 import { getUsdRate } from './utils/helpers/helpers'
@@ -79,7 +79,7 @@ describe('ZrxSwapper', () => {
   })
   it('calls getUsdRate on swapper.getUsdRate', async () => {
     const swapper = new ZrxSwapper(zrxEthereumSwapperDeps)
-    await swapper.getUsdRate(FOX)
+    await swapper.getUsdRate(XFURY)
     expect(getUsdRate).toHaveBeenCalled()
   })
 

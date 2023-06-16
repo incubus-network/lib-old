@@ -3,10 +3,10 @@ import { HDWallet } from '@shapeshiftoss/hdwallet-core'
 import { KnownChainIds } from '@shapeshiftoss/types'
 
 import { BuildTradeInput, GetTradeQuoteInput, TradeQuote } from '../../../api'
-import { FOX, WETH } from './assets'
+import { WETH, XFURY } from './assets'
 
 export const setupQuote = () => {
-  const sellAsset: Asset = { ...FOX }
+  const sellAsset: Asset = { ...XFURY }
   const buyAsset: Asset = { ...WETH }
   const tradeQuote: TradeQuote<KnownChainIds.EthereumMainnet> = {
     buyAmountCryptoBaseUnit: '',
@@ -40,7 +40,7 @@ export const setupQuote = () => {
 }
 
 export const setupBuildTrade = () => {
-  const sellAsset: Asset = { ...FOX }
+  const sellAsset: Asset = { ...XFURY }
   const buyAsset: Asset = { ...WETH }
   const buildTradeInput: BuildTradeInput = {
     chainId: KnownChainIds.EthereumMainnet,

@@ -1,4 +1,4 @@
-import { foxThornodePool, usdcThornodePool } from '../test-data/responses'
+import { usdcThornodePool, xfuryThornodePool } from '../test-data/responses'
 import { thorService } from '../thorService'
 import { getUsdRate } from './getUsdRate'
 
@@ -10,7 +10,7 @@ describe('getUsdRate', () => {
   it('should return USD rate of given Thorchain asset', async () => {
     mockedAxios.get.mockImplementation((url) => {
       if (url.includes('lcd/thorchain/pools')) return Promise.resolve({ data: [usdcThornodePool] })
-      return Promise.resolve({ data: foxThornodePool })
+      return Promise.resolve({ data: xfuryThornodePool })
     })
 
     const assetId = 'eip155:1/erc20:0xc770eefad204b5180df6a14ee197d99d808ee52d'
@@ -27,7 +27,7 @@ describe('getUsdRate', () => {
 
   it('should throw if pool is no longer available', async () => {
     const assetId = 'eip155:1/erc20:0xc770eefad204b5180df6a14ee197d99d808ee52d'
-    const pool = { ...foxThornodePool }
+    const pool = { ...xfuryThornodePool }
     pool.status = 'Paused'
     mockedAxios.get.mockImplementation(() => Promise.resolve({ data: pool }))
     await expect(getUsdRate('', assetId)).rejects.toThrow(
@@ -37,7 +37,7 @@ describe('getUsdRate', () => {
 
   it('should throw if pool has a 0 balance', async () => {
     const assetId = 'eip155:1/erc20:0xc770eefad204b5180df6a14ee197d99d808ee52d'
-    const pool = { ...foxThornodePool }
+    const pool = { ...xfuryThornodePool }
     pool.balance_asset = '0'
     mockedAxios.get.mockImplementation(() => Promise.resolve({ data: pool }))
     await expect(getUsdRate('', assetId)).rejects.toThrow(`[getUsdRate]: pool has a zero balance`)
@@ -47,7 +47,7 @@ describe('getUsdRate', () => {
     const assetId = 'eip155:1/erc20:0xc770eefad204b5180df6a14ee197d99d808ee52d'
     mockedAxios.get.mockImplementation((url) => {
       if (url.includes('lcd/thorchain/pools')) return Promise.resolve({ data: [] })
-      return Promise.resolve({ data: foxThornodePool })
+      return Promise.resolve({ data: xfuryThornodePool })
     })
     await expect(getUsdRate('', assetId)).rejects.toThrow(`[getUsdRate]: no available usd pools`)
   })

@@ -18,11 +18,11 @@ const makeEthMockCoincapResponse = () => ({
   explorer: 'https://etherscan.io/',
 })
 
-const makeFoxMockCoincapResponse = () => ({
-  id: 'fox-token',
+const makeXfuryMockCoincapResponse = () => ({
+  id: 'xfury-token',
   rank: '396',
-  symbol: 'FOX',
-  name: 'FOX Token',
+  symbol: 'XFURY',
+  name: 'XFURY Token',
   supply: '117022448.6044180000000000',
   maxSupply: '1000001337.0000000000000000',
   marketCapUsd: '76108238.1995641297877127',
@@ -102,10 +102,10 @@ jest.mock('fs', () => ({
 describe('adapters:coincap:utils', () => {
   describe('parseEthData', () => {
     it('can parse eth data', async () => {
-      const result = parseEthData([makeEthMockCoincapResponse(), makeFoxMockCoincapResponse()])
+      const result = parseEthData([makeEthMockCoincapResponse(), makeXfuryMockCoincapResponse()])
       const expected = {
         'eip155:1/slip44:60': 'ethereum',
-        'eip155:1/erc20:0xc770eefad204b5180df6a14ee197d99d808ee52d': 'fox-token',
+        'eip155:1/erc20:0xc770eefad204b5180df6a14ee197d99d808ee52d': 'xfury-token',
       }
       expect(result).toEqual(expected)
     })
@@ -135,7 +135,7 @@ describe('adapters:coincap:utils', () => {
     it('can parse all data', async () => {
       const result = parseData([
         makeEthMockCoincapResponse(),
-        makeFoxMockCoincapResponse(),
+        makeXfuryMockCoincapResponse(),
         makeBtcMockCoincapResponse(),
         makeCosmosMockCoincapResponse(),
         makeOsmosisMockCoincapResponse(),
@@ -165,7 +165,7 @@ describe('adapters:coincap:utils', () => {
         },
         'eip155:1': {
           'eip155:1/slip44:60': 'ethereum',
-          'eip155:1/erc20:0xc770eefad204b5180df6a14ee197d99d808ee52d': 'fox-token',
+          'eip155:1/erc20:0xc770eefad204b5180df6a14ee197d99d808ee52d': 'xfury-token',
         },
       }
       expect(result).toEqual(expected)
@@ -180,7 +180,7 @@ describe('adapters:coincap:utils', () => {
           assetIdDef: 'efferium',
         },
         bar: {
-          assetIdGhi: 'fox',
+          assetIdGhi: 'xfury',
           assetIdJkl: 'shib',
         },
       }

@@ -1,6 +1,6 @@
 import { AxiosStatic } from 'axios'
 
-import { FOX, WETH } from '../../../utils/test-data/assets'
+import { WETH, XFURY } from '../../../utils/test-data/assets'
 import { zrxServiceFactory } from '../zrxService'
 import { getUsdRate } from './helpers'
 
@@ -19,7 +19,7 @@ describe('utils', () => {
       ;(zrxService.get as jest.Mock<unknown>).mockReturnValue(
         Promise.resolve({ data: { price: '2' } }),
       )
-      const rate = await getUsdRate(FOX)
+      const rate = await getUsdRate(XFURY)
       expect(rate).toBe('0.5')
       expect(zrxService.get).toHaveBeenCalledWith('/swap/v1/price', {
         params: {

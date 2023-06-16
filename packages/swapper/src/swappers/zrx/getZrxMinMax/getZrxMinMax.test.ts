@@ -1,7 +1,7 @@
 jest.mock('../utils/zrxService')
 jest.mock('../utils/helpers/helpers')
 
-import { AVAX, BSC, BTC, FOX, OPTIMISM, WETH } from '../../utils/test-data/assets'
+import { AVAX, BSC, BTC, OPTIMISM, WETH, XFURY } from '../../utils/test-data/assets'
 import { MAX_ZRX_TRADE } from '../utils/constants'
 import { getZrxMinMax } from './getZrxMinMax'
 
@@ -12,7 +12,7 @@ jest.mock('../utils/helpers/helpers', () => ({
 
 describe('getZrxMinMax', () => {
   it('returns minimum and maximum', async () => {
-    const minMax = await getZrxMinMax(FOX, WETH)
+    const minMax = await getZrxMinMax(XFURY, WETH)
     expect(minMax.minimum).toBe('1')
     expect(minMax.maximum).toBe(MAX_ZRX_TRADE)
   })

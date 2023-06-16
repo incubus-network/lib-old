@@ -151,7 +151,7 @@ Co-authored-by: Apotheosis <97164662+0xApotheosis@users.noreply.github.com>
 
 ### Features
 
-* use FOX CoinGecko market data for FOXy ([#830](https://github.com/shapeshift/lib/issues/830)) ([b2b4b84](https://github.com/shapeshift/lib/commit/b2b4b84e23a1fa5357558fd3172df8deb2b17460))
+* use XFURY CoinGecko market data for XFURYy ([#830](https://github.com/shapeshift/lib/issues/830)) ([b2b4b84](https://github.com/shapeshift/lib/commit/b2b4b84e23a1fa5357558fd3172df8deb2b17460))
 
 # [@shapeshiftoss/market-service-v6.3.0](https://github.com/shapeshift/lib/compare/@shapeshiftoss/market-service-v6.2.2...@shapeshiftoss/market-service-v6.3.0) (2022-06-27)
 
@@ -165,7 +165,7 @@ Co-authored-by: Apotheosis <97164662+0xApotheosis@users.noreply.github.com>
 
 ### Bug Fixes
 
-* consistently use Foxy.methods.circulatingSupply for supply ([#828](https://github.com/shapeshift/lib/issues/828)) ([1407938](https://github.com/shapeshift/lib/commit/1407938d1098dd4986fce6e3da11259799b7945e))
+* consistently use Xfuryz.methods.circulatingSupply for supply ([#828](https://github.com/shapeshift/lib/issues/828)) ([1407938](https://github.com/shapeshift/lib/commit/1407938d1098dd4986fce6e3da11259799b7945e))
 
 # [@shapeshiftoss/market-service-v6.2.1](https://github.com/shapeshift/lib/compare/@shapeshiftoss/market-service-v6.2.0...@shapeshiftoss/market-service-v6.2.1) (2022-06-15)
 
@@ -231,7 +231,7 @@ Co-authored-by: Apotheosis <97164662+0xApotheosis@users.noreply.github.com>
 
 ### Features
 
-* **market-service:** foxy supply and maxSupply fields ([#729](https://github.com/shapeshift/lib/issues/729)) ([84b3872](https://github.com/shapeshift/lib/commit/84b387294636304a022e7a2e80b91aed9b68a931))
+* **market-service:** xfuryz supply and maxSupply fields ([#729](https://github.com/shapeshift/lib/issues/729)) ([84b3872](https://github.com/shapeshift/lib/commit/84b387294636304a022e7a2e80b91aed9b68a931))
 
 # [@shapeshiftoss/market-service-v4.5.1](https://github.com/shapeshift/lib/compare/@shapeshiftoss/market-service-v4.5.0...@shapeshiftoss/market-service-v4.5.1) (2022-06-03)
 
@@ -384,7 +384,7 @@ Co-authored-by: kaladinlight <35275952+kaladinlight@users.noreply.github.com>
 
 ### Features
 
-* implement Foxy asset & market data ([#455](https://github.com/shapeshift/lib/issues/455)) ([0d44ab9](https://github.com/shapeshift/lib/commit/0d44ab931153cffab81a923f24814e41a2f898ba)), closes [#453](https://github.com/shapeshift/lib/issues/453)
+* implement Xfuryz asset & market data ([#455](https://github.com/shapeshift/lib/issues/455)) ([0d44ab9](https://github.com/shapeshift/lib/commit/0d44ab931153cffab81a923f24814e41a2f898ba)), closes [#453](https://github.com/shapeshift/lib/issues/453)
 
 # [@shapeshiftoss/market-service-v2.0.5](https://github.com/shapeshift/lib/compare/@shapeshiftoss/market-service-v2.0.4...@shapeshiftoss/market-service-v2.0.5) (2022-03-17)
 

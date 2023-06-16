@@ -13,18 +13,18 @@ import { getIdleTokens } from './idleVaults'
 import { getUniswapV2Pools } from './uniswapV2Pools'
 import { getUnderlyingVaultTokens, getYearnVaults, getZapperTokens } from './yearnVaults'
 
-const foxyToken: Asset = {
+const xfuryzToken: Asset = {
   assetId: toAssetId({
     chainId: ethChainId,
     assetNamespace: 'erc20',
     assetReference: '0xDc49108ce5C57bc3408c3A5E95F3d864eC386Ed3',
   }),
   chainId: ethChainId,
-  name: 'FOX Yieldy',
+  name: 'XFURY Yieldy',
   precision: 18,
   color: '#CE3885',
-  icon: 'https://raw.githubusercontent.com/shapeshift/lib/main/packages/asset-service/src/generateAssetData/ethereum/icons/foxy-icon.png',
-  symbol: 'FOXy',
+  icon: 'https://raw.githubusercontent.com/shapeshift/lib/main/packages/asset-service/src/generateAssetData/ethereum/icons/xfuryz-icon.png',
+  symbol: 'XFURYy',
   explorer: ethereum.explorer,
   explorerAddressLink: ethereum.explorerAddressLink,
   explorerTxLink: ethereum.explorerTxLink,
@@ -43,7 +43,7 @@ export const getAssets = async (): Promise<Asset[]> => {
 
   const ethAssets = [
     ethereum,
-    foxyToken,
+    xfuryzToken,
     ...ethTokens,
     ...yearnVaults,
     ...zapperTokens,

@@ -16,7 +16,7 @@ import {
   ThorchainSwapperDeps,
   ZrxSwapper,
 } from '../swappers'
-import { ETH, FOX, WETH } from '../swappers/utils/test-data/assets'
+import { ETH, WETH, XFURY } from '../swappers/utils/test-data/assets'
 import { ZrxSwapperDeps } from '../swappers/zrx/types'
 
 const zrxEthereumSwapperDeps: ZrxSwapperDeps = {
@@ -77,7 +77,7 @@ export const getThorchainSwapper = () => new ThorchainSwapper(thorchainSwapperDe
 export const tradeQuote: TradeQuote<KnownChainIds.EthereumMainnet> = {
   minimumCryptoHuman: '60',
   maximum: '1000000000000000000000',
-  sellAmountBeforeFeesCryptoBaseUnit: '1000000000000000000000', // 1000 FOX
+  sellAmountBeforeFeesCryptoBaseUnit: '1000000000000000000000', // 1000 XFURY
   allowanceContract: '0x3624525075b88B24ecc29CE226b0CEc1fFcB6976',
   buyAmountCryptoBaseUnit: '23448326921811747', // 0.023 ETH
   feeData: {
@@ -93,7 +93,7 @@ export const tradeQuote: TradeQuote<KnownChainIds.EthereumMainnet> = {
   rate: '0.00002509060972289251',
   sources: [{ name: SwapperName.Thorchain, proportion: '1' }],
   buyAsset: ETH,
-  sellAsset: FOX,
+  sellAsset: XFURY,
   accountNumber: 0,
 }
 

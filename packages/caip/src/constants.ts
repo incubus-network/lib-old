@@ -10,8 +10,9 @@ export const ethAssetId: AssetId = 'eip155:1/slip44:60'
 export const avalancheAssetId: AssetId = 'eip155:43114/slip44:60'
 export const optimismAssetId: AssetId = 'eip155:10/slip44:60'
 export const bscAssetId: AssetId = 'eip155:56/slip44:60'
-export const foxAssetId: AssetId = 'eip155:1/erc20:0xc770eefad204b5180df6a14ee197d99d808ee52d'
-export const foxyAssetId: AssetId = 'eip155:1/erc20:0xdc49108ce5c57bc3408c3a5e95f3d864ec386ed3'
+export const xfuryAssetId: AssetId = 'eip155:1/erc20:0xc770eefad204b5180df6a14ee197d99d808ee52d'
+export const xfuryzAssetId: AssetId = 'eip155:1/erc20:0xdc49108ce5c57bc3408c3a5e95f3d864ec386ed3'
+export const furyAssetId: AssetId = 'eip155:710/slip44:60'
 
 export const cosmosAssetId: AssetId = 'cosmos:cosmoshub-4/slip44:118'
 export const osmosisAssetId: AssetId = 'cosmos:osmosis-1/slip44:118'
@@ -30,6 +31,7 @@ export const ethChainId: ChainId = 'eip155:1'
 export const avalancheChainId: ChainId = 'eip155:43114'
 export const optimismChainId: ChainId = 'eip155:10'
 export const bscChainId: ChainId = 'eip155:56'
+export const blackfuryChainId: ChainId = 'eip155:710'
 
 export const cosmosChainId: ChainId = 'cosmos:cosmoshub-4'
 export const osmosisChainId: ChainId = 'cosmos:osmosis-1'
@@ -75,6 +77,7 @@ export const CHAIN_REFERENCE = {
   TerraTestnet: 'pisco-1', // https://docs.terra.money/full-node/run-a-full-terra-node/join-a-network/
   SecretMainnet: 'secret-4', // https://docs.scrt.network/secret-network-documentation/development/api-endpoints
   SecretTestnet: 'pulsar-2', // https://docs.scrt.network/secret-network-documentation/development/api-endpoints
+  BlackfuryMainnet: '10', //https://community.optimism.io/docs/useful-tools/networks/#optimism-mainnet
   OptimismMainnet: '10', //https://community.optimism.io/docs/useful-tools/networks/#optimism-mainnet
   BnbSmartChainMainnet: '56', // https://docs.bnbchain.org/docs/wallet_api/#chain-ids
 } as const
@@ -105,6 +108,7 @@ export const ASSET_REFERENCE = {
   Kava: '459',
   Terra: '330',
   Secret: '529',
+  Blackfury: '60', // evm chain which uses ethereum derivation path as common practice
   Optimism: '60', // evm chain which uses ethereum derivation path as common practice
   BnbSmartChain: '60', // evm chain which uses ethereum derivation path as common practice
 } as const
@@ -122,6 +126,7 @@ export const VALID_CHAIN_IDS: ValidChainMap = Object.freeze({
     CHAIN_REFERENCE.EthereumRopsten,
     CHAIN_REFERENCE.EthereumRinkeby,
     CHAIN_REFERENCE.AvalancheCChain,
+    CHAIN_REFERENCE.BlackfuryMainnet,
     CHAIN_REFERENCE.OptimismMainnet,
     CHAIN_REFERENCE.BnbSmartChainMainnet,
   ],

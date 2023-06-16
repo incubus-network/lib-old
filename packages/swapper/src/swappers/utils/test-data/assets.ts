@@ -6,11 +6,11 @@ import {
   bscChainId,
   ethAssetId,
   ethChainId,
-  foxAssetId,
   optimismAssetId,
   optimismChainId,
   thorchainAssetId,
   thorchainChainId,
+  xfuryAssetId,
 } from '@shapeshiftoss/caip'
 
 export const BTC: Asset = {
@@ -39,17 +39,17 @@ export const WETH: Asset = {
   symbol: 'WETH',
 }
 
-export const FOX: Asset = {
-  assetId: foxAssetId,
+export const XFURY: Asset = {
+  assetId: xfuryAssetId,
   chainId: ethChainId,
-  name: 'FOX',
+  name: 'XFURY',
   precision: 18,
   color: '#FFFFFF',
-  icon: 'https://assets.coincap.io/assets/icons/fox@2x.png',
+  icon: 'https://assets.coincap.io/assets/icons/xfury@2x.png',
   explorer: 'https://etherscan.io',
   explorerTxLink: 'https://etherscan.io/tx/',
   explorerAddressLink: 'https://etherscan.io/address/',
-  symbol: 'FOX',
+  symbol: 'XFURY',
 }
 
 export const WBTC: Asset = {

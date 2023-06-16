@@ -4,7 +4,7 @@ import { KnownChainIds } from '@shapeshiftoss/types'
 import Web3 from 'web3'
 
 import { SwapperName, SwapperType, TradeResult } from '../../api'
-import { BTC, ETH, FOX, WBTC, WETH } from '../utils/test-data/assets'
+import { BTC, ETH, WBTC, WETH, XFURY } from '../utils/test-data/assets'
 import { setupBuildTrade, setupQuote } from '../utils/test-data/setupSwapQuote'
 import { cowApprovalNeeded } from './cowApprovalNeeded/cowApprovalNeeded'
 import { cowApproveAmount, cowApproveInfinite } from './cowApprove/cowApprove'
@@ -49,7 +49,7 @@ jest.mock('./cowGetTradeTxs/cowGetTradeTxs', () => ({
   cowGetTradeTxs: jest.fn(),
 }))
 
-const ASSET_IDS = [ETH.assetId, WBTC.assetId, WETH.assetId, BTC.assetId, FOX.assetId]
+const ASSET_IDS = [ETH.assetId, WBTC.assetId, WETH.assetId, BTC.assetId, XFURY.assetId]
 
 describe('CowSwapper', () => {
   const wallet = <HDWallet>{}
@@ -69,8 +69,8 @@ describe('CowSwapper', () => {
 
   describe('getUsdRate', () => {
     it('calls getUsdRate on swapper.getUsdRate', async () => {
-      await swapper.getUsdRate(FOX)
-      expect(getUsdRate).toHaveBeenCalledWith(COW_SWAPPER_DEPS, FOX)
+      await swapper.getUsdRate(XFURY)
+      expect(getUsdRate).toHaveBeenCalledWith(COW_SWAPPER_DEPS, XFURY)
     })
   })
 
@@ -83,13 +83,13 @@ describe('CowSwapper', () => {
       expect(swapper.filterAssetIdsBySellable(ASSET_IDS)).toEqual([
         WBTC.assetId,
         WETH.assetId,
-        FOX.assetId,
+        XFURY.assetId,
       ])
     })
 
     it('returns array filtered out of unsupported tokens', () => {
-      const assetIds = [FOX.assetId, 'eip155:1/erc20:0xdc49108ce5c57bc3408c3a5e95f3d864ec386ed3']
-      expect(swapper.filterAssetIdsBySellable(assetIds)).toEqual([FOX.assetId])
+      const assetIds = [XFURY.assetId, 'eip155:1/erc20:0xdc49108ce5c57bc3408c3a5e95f3d864ec386ed3']
+      expect(swapper.filterAssetIdsBySellable(assetIds)).toEqual([XFURY.assetId])
     })
   })
 
@@ -121,32 +121,32 @@ describe('CowSwapper', () => {
           assetIds: ASSET_IDS,
           sellAssetId: WETH.assetId,
         }),
-      ).toEqual([ETH.assetId, WBTC.assetId, FOX.assetId])
+      ).toEqual([ETH.assetId, WBTC.assetId, XFURY.assetId])
       expect(
         swapper.filterBuyAssetsBySellAssetId({
           assetIds: ASSET_IDS,
           sellAssetId: WBTC.assetId,
         }),
-      ).toEqual([ETH.assetId, WETH.assetId, FOX.assetId])
+      ).toEqual([ETH.assetId, WETH.assetId, XFURY.assetId])
       expect(
         swapper.filterBuyAssetsBySellAssetId({
           assetIds: ASSET_IDS,
-          sellAssetId: FOX.assetId,
+          sellAssetId: XFURY.assetId,
         }),
       ).toEqual([ETH.assetId, WBTC.assetId, WETH.assetId])
     })
 
     it('returns array filtered out of unsupported tokens when called with a sellable sellAssetId', () => {
-      const assetIds = [FOX.assetId, 'eip155:1/erc20:0xdc49108ce5c57bc3408c3a5e95f3d864ec386ed3']
+      const assetIds = [XFURY.assetId, 'eip155:1/erc20:0xdc49108ce5c57bc3408c3a5e95f3d864ec386ed3']
       expect(
         swapper.filterBuyAssetsBySellAssetId({
           assetIds,
           sellAssetId: WETH.assetId,
         }),
-      ).toEqual([FOX.assetId])
-      expect(swapper.filterBuyAssetsBySellAssetId({ assetIds, sellAssetId: FOX.assetId })).toEqual(
-        [],
-      )
+      ).toEqual([XFURY.assetId])
+      expect(
+        swapper.filterBuyAssetsBySellAssetId({ assetIds, sellAssetId: XFURY.assetId }),
+      ).toEqual([])
     })
   })
 
@@ -205,7 +205,7 @@ describe('CowSwapper', () => {
         sellAmountBeforeFeesCryptoBaseUnit: '1000000000000000000',
         buyAmountCryptoBaseUnit: '14501811818247595090576',
         sources: [{ name: SwapperName.CowSwap, proportion: '1' }],
-        buyAsset: FOX,
+        buyAsset: XFURY,
         sellAsset: WETH,
         accountNumber: 0,
         receiveAddress: 'address11',

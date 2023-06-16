@@ -1,10 +1,10 @@
 import { Asset } from '@shapeshiftoss/asset-service'
 
-import { FOX, WETH } from '../../../utils/test-data/assets'
+import { WETH, XFURY } from '../../../utils/test-data/assets'
 import { ZrxQuoteResponse } from '../../types'
 
 export const setupZrxTradeQuoteResponse = () => {
-  const sellAsset: Asset = { ...FOX }
+  const sellAsset: Asset = { ...XFURY }
   const buyAsset: Asset = { ...WETH }
   const quoteResponse: ZrxQuoteResponse = {
     sellAmount: '1000000000000000000',
@@ -21,7 +21,7 @@ export const setupZrxTradeQuoteResponse = () => {
 }
 
 export const setupExecuteTrade = () => {
-  const sellAsset: Asset = { ...FOX }
+  const sellAsset: Asset = { ...XFURY }
   const buyAsset: Asset = { ...WETH }
   const executeTradeInput = {
     sellAmountBeforeFeesCryptoBaseUnit: '1000000000000000000',

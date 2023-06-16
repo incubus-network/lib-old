@@ -1,7 +1,7 @@
 import { ethereum } from '@shapeshiftoss/chain-adapters'
 import Web3 from 'web3'
 
-import { BTC, ETH, FOX, USDC, WBTC } from '../../../utils/test-data/assets'
+import { BTC, ETH, USDC, WBTC, XFURY } from '../../../utils/test-data/assets'
 import { CowSwapperDeps } from '../../CowSwapper'
 import { DEFAULT_ADDRESS, DEFAULT_APP_DATA, ORDER_KIND_BUY } from '../constants'
 import { cowService } from '../cowService'
@@ -32,7 +32,7 @@ describe('utils', () => {
   }
 
   describe('getUsdRate', () => {
-    it('gets the usd rate of FOX', async () => {
+    it('gets the usd rate of XFURY', async () => {
       ;(cowService.post as jest.Mock<unknown>).mockReturnValue(
         Promise.resolve({
           data: {
@@ -43,7 +43,7 @@ describe('utils', () => {
         }),
       )
 
-      const rate = await getUsdRate(cowSwapperDeps, FOX)
+      const rate = await getUsdRate(cowSwapperDeps, XFURY)
       expect(parseFloat(rate)).toBeCloseTo(0.129834198, 9)
       expect(cowService.post).toHaveBeenCalledWith(
         'https://api.cow.fi/mainnet/api/v1/quote/',
@@ -122,7 +122,7 @@ describe('utils', () => {
           },
         }),
       )
-      await expect(getUsdRate(cowSwapperDeps, FOX)).rejects.toThrow(
+      await expect(getUsdRate(cowSwapperDeps, XFURY)).rejects.toThrow(
         '[getUsdRate] - Failed to get sell token amount',
       )
     })
@@ -131,7 +131,7 @@ describe('utils', () => {
       ;(cowService.get as jest.Mock<unknown>).mockImplementation(() => {
         throw new Error('unexpected error')
       })
-      await expect(getUsdRate(cowSwapperDeps, FOX)).rejects.toThrow('[getUsdRate]')
+      await expect(getUsdRate(cowSwapperDeps, XFURY)).rejects.toThrow('[getUsdRate]')
     })
   })
 

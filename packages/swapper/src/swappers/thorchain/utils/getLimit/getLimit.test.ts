@@ -10,7 +10,7 @@ import { ChainAdapterManager } from '@shapeshiftoss/chain-adapters'
 import Web3 from 'web3'
 
 import { DEFAULT_SLIPPAGE } from '../../../utils/constants'
-import { BTC, ETH, FOX, RUNE } from '../../../utils/test-data/assets'
+import { BTC, ETH, RUNE, XFURY } from '../../../utils/test-data/assets'
 import { ThorchainSwapperDeps } from '../../types'
 import { getInboundAddressDataForChain } from '../getInboundAddressDataForChain'
 import { getTradeRate } from '../getTradeRate/getTradeRate'
@@ -63,7 +63,7 @@ describe('getLimit', () => {
       Promise.resolve(mockInboundAddresses.find((address) => address.chain === 'ETH')),
     )
     const getLimitArgs: GetLimitArgs = {
-      sellAsset: FOX,
+      sellAsset: XFURY,
       buyAssetId: BTC.assetId,
       sellAmountCryptoBaseUnit: '489830019000000000000',
       deps: thorchainSwapperDeps,
@@ -83,7 +83,7 @@ describe('getLimit', () => {
       Promise.resolve(mockInboundAddresses.find((address) => address.chain === 'ETH')),
     )
     const getLimitArgs: GetLimitArgs = {
-      sellAsset: FOX,
+      sellAsset: XFURY,
       buyAssetId: RUNE.assetId,
       sellAmountCryptoBaseUnit: '984229076000000000000',
       deps: thorchainSwapperDeps,
@@ -97,7 +97,7 @@ describe('getLimit', () => {
   it('should get limit when sell asset is RUNE and buy asset is not', async () => {
     ;(getUsdRate as jest.Mock<unknown>)
       .mockReturnValueOnce(Promise.resolve('14.51')) // sellFeeAssetUsdRate (RUNE)
-      .mockReturnValueOnce(Promise.resolve('0.04')) // buyAssetUsdRate (FOX)
+      .mockReturnValueOnce(Promise.resolve('0.04')) // buyAssetUsdRate (XFURY)
     ;(getTradeRate as jest.Mock<unknown>).mockReturnValue(
       Promise.resolve('38.68447363336979738738'),
     )
@@ -106,7 +106,7 @@ describe('getLimit', () => {
     )
     const getLimitArgs: GetLimitArgs = {
       sellAsset: RUNE,
-      buyAssetId: FOX.assetId,
+      buyAssetId: XFURY.assetId,
       sellAmountCryptoBaseUnit: '988381400',
       deps: thorchainSwapperDeps,
       slippageTolerance: DEFAULT_SLIPPAGE,
